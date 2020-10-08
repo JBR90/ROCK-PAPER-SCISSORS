@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+  
+
+        function computerPlay(){
+            let myArray = ["Rock","Paper","Scissors"];
+            let randomItem = myArray[Math.floor(Math.random()*myArray.length)];
+            return randomItem;
+        }
+
+        function playerPlay(){
+            let move = ["Rock, Paper", "Scissers"]
+            // let playerSelection = "none";
+            // console.log(move.includes(playerSelection))
+            
+                
+            playerSelection = prompt("please enter: Rock, Paper, Scissors");
+            playerSelection = playerSelection.toLowerCase();
+            playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+            return playerSelection
+        }
+
+
+
+        function rpsRound(playerSelection,computerSelection){
+            if(playerSelection == computerSelection){
+                return("draw");
+            }else if(playerSelection == "Scissors" && computerSelection == "Rock" ||
+                        playerSelection == "Paper" && computerSelection == "Scissors" ||
+                        playerSelection == "Rock" && computerSelection == "Paper"){
+                                return("lose");
+                            }else{
+                                return("Win")
+                            }
+      
+        }
+
+
+
+
+        function game(){
+            playerScore = 0;
+            compScore = 0;
+    
+            for(let i = 0; i < 4; i++){
+                console.log("animals")
+                let computerSelection = computerPlay();
+                let playerSelection = playerPlay();
+                let round = (rpsRound(playerSelection,computerSelection))
+                console.log(round)
+                if(round == "Draw" ){
+                    console.log("draw!!!!!")
+                    
+                }else if(round == "Win"){
+                    console.log("WIN -" + playerSelection + " beats " + computerSelection);
+                    playerScore += 1;
+                    
+                    
+                }else if(round = "Lose"){
+                    console.log("Lose -" + computerSelection + " beats " + playerSelection);
+                    compScore += 1;
+                }
+
+
+                console.log("Player: " + playerScore + " Computer: " + compScore)
+           
+        }
+        if(playerScore > compScore){
+            console.log("Player is the winner")
+        }else{
+            console.log("Comp is the winner")
+        }
+    }
+
+
+     
+ 
+      game()
+
+        
+    
+    </script>
+    
+    
+</body>
+</html>
