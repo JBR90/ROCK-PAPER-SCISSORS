@@ -4,91 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+ 
+    <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/70ea06a304.js" crossorigin="anonymous"></script>
+    
+    <link rel = "stylesheet"
+    type = "text/css"
+    href = "styles.css" />
 </head>
 <body>
+    <div class="player-container">Score</div>
+    <div id="container">
 
-    <script>
-  
+        <div class = "choice">
+            <p>Player Choice</p>
+            <p id="pc">Rock</p>
+        </div>
 
-        function computerPlay(){
-            let myArray = ["Rock","Paper","Scissors"];
-            let randomItem = myArray[Math.floor(Math.random()*myArray.length)];
-            return randomItem;
-        }
-
-        function playerPlay(){
-            let move = ["Rock, Paper", "Scissers"]
-            // let playerSelection = "none";
-            // console.log(move.includes(playerSelection))
-            
-                
-            playerSelection = prompt("please enter: Rock, Paper, Scissors");
-            playerSelection = playerSelection.toLowerCase();
-            playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
-            return playerSelection
-        }
-
-
-
-        function rpsRound(playerSelection,computerSelection){
-            if(playerSelection == computerSelection){
-                return("draw");
-            }else if(playerSelection == "Scissors" && computerSelection == "Rock" ||
-                        playerSelection == "Paper" && computerSelection == "Scissors" ||
-                        playerSelection == "Rock" && computerSelection == "Paper"){
-                                return("lose");
-                            }else{
-                                return("Win")
-                            }
-      
-        }
-
-
-
-
-        function game(){
-            playerScore = 0;
-            compScore = 0;
-    
-            for(let i = 0; i < 4; i++){
-                console.log("animals")
-                let computerSelection = computerPlay();
-                let playerSelection = playerPlay();
-                let round = (rpsRound(playerSelection,computerSelection))
-                console.log(round)
-                if(round == "Draw" ){
-                    console.log("draw!!!!!")
-                    
-                }else if(round == "Win"){
-                    console.log("WIN -" + playerSelection + " beats " + computerSelection);
-                    playerScore += 1;
-                    
-                    
-                }else if(round = "Lose"){
-                    console.log("Lose -" + computerSelection + " beats " + playerSelection);
-                    compScore += 1;
-                }
-
-
-                console.log("Player: " + playerScore + " Computer: " + compScore)
-           
-        }
-        if(playerScore > compScore){
-            console.log("Player is the winner")
-        }else{
-            console.log("Comp is the winner")
-        }
-    }
-
-
-     
- 
-      game()
-
+        <div id="buttons">
+            <button id="Rock" class="game-options"><i class="fas fa-hand-rock fa-2x"></i></button>
+            <button id="Paper" class="game-options"><i class="fas fa-hand-paper fa-2x"></i></button>
+            <button id="Scissors" class="game-options"><i class="fas fa-hand-scissors fa-2x"></i></button>
+        </div>       
         
+        <div class = "choice">
+            <p>Computer Choice</p>
+            <p id="cc">Rock</p>
+        </div>
+
+    </div>
+
+    <div class ="game-details">
+        
+        <div id = "round">Round: 0</div>
+        <div id="score"> Player: 0 Computer: 0</div>
+        <div id="result"><div>
+
+    </div>
     
-    </script>
     
+
     
+    <script src="scripts.js"></script>
 </body>
 </html>
